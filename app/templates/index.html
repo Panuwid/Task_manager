@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Task Manager!</h1>
+    <p class="lead">ระบบจัดการงานส่วนบุคคลของคุณ</p>
+    <hr class="my-4">
+    {% if current_user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('dashboard') }}" role="button">Go to Dashboard</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+    <a class="btn btn-success btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
+    {% endif %}
+</div>
+{% endblock %}
